@@ -1,9 +1,10 @@
 import express from "express";
-import { createLivro, getLivros, putLivros, deleteLivros} from "../controllers/livroController.js";
+import { createLivro, getLivro, putLivros, deleteLivros, getLivros} from "../controllers/livroController.js";
 
 const router = express.Router();
 
-router.get("/:id", getLivros);
+router.get("/", getLivros);
+router.get("/:id", getLivro);
 router.post("/", createLivro);
 router.put("/:id", putLivros);
 router.delete("/:id", deleteLivros);

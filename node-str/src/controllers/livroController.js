@@ -1,6 +1,15 @@
 import Livro from "../models/livros.js";
 
 export const getLivros = async (req, res) => {
+  try {
+    const livros = await Livro.findAll();
+    res.status(200).json(livros);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getLivro = async (req, res) => {
 
   try {
     const { id } = req.params; 
