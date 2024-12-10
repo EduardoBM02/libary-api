@@ -1,5 +1,14 @@
 import Emprestimo from "../models/emprestimo.js";
 
+export const getEmprestimos = async (req, res) => {
+  try {
+    const emprestimo = await Emprestimo.findAll();
+    res.status(200).json(emprestimo);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 export const getEmprestimo = async (req, res) => {
 
   try {
